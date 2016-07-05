@@ -1,6 +1,8 @@
 
-<div style="margin-top: 65px">
-<div class="body padding">
+<div style="padding-top: 65px">
+  <p> <font color="red">{{message}}</font></p>
+
+  <div class="body padding">
   <div class="w-form">
     <form method="post" ng-submit="signup()" name="signupForm">
       <div class="separator-button-input"></div>
@@ -20,6 +22,11 @@
         <div class="separator-fields"></div>
       </div>
       <div>
+        <label class="label-form" for="password-ield">CONFIRM PASSWORD</label>
+        <input  ng-model="confPwd" class="w-input input-form" id="confPwd-field" type="password" name="confPwd" data-name="confPwd"/>
+        <div class="separator-fields"></div>
+      </div>
+      <div>
         <label class="label-form" for="email-field">STREET ADDRESS</label>
         <input  ng-model="address" class="w-input input-form" id="address-field" type="text" name="address" data-name="address"/>
         <div class="separator-fields"></div>
@@ -27,7 +34,7 @@
       <div>
         <label class="label-form" for="node-10">CITY</label>
         <div class="separator-fields"></div>
-        <select class="w-select input-form select" id="node-10">
+        <select ng-model="city" class="w-select input-form select" id="node-10">
           <option value="">Select one...</option>
           <option value="Bangalore">Bangalore</option>
           <option value="Chennai">Chennai</option>
@@ -47,7 +54,7 @@
       <button class="w-button action-button btn btn-lg  btn-block btn-success" type="submit">Signup</button>
 
     </form>
-    <p> {{message}}</p>
+    <p> <font color="red">{{message}}</font></p>
   </div>
 </div>
 </div>

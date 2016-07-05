@@ -3,5 +3,5 @@
  */
 app.controller('HomeCtrl', function($scope, $alert, $auth, $rootScope) {
     $rootScope.title = "Meals";
-    console.log("Yo");
+    console.log($auth.isAuthenticated());
 });
