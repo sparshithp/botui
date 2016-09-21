@@ -852,7 +852,6 @@ a {
 .image-new {
   position: relative;
   height: 150px;
-  background-image: url('../images/dosa.jpg');
   background-position: 50% 0px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -1739,5 +1738,7 @@ input[type=text]:focus, textarea:focus {
 }
 
 .circular-side {
+ /*
   background-image: url('../images/messi.jpg');
+*/
 }

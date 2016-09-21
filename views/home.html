@@ -14,10 +14,9 @@
         <div class="w-tab-content tabs-content">
             <div>
                 <div class="separator-fields"></div>
-                <select class="w-select input-form select" id="node-10">
+                <select class="w-select input-form select" ng-model="areaSelected" ng-change="changedArea(areaSelected)"
+                        data-ng-options="area as area.area for area in areas">
                     <option value="">Select delivery area</option>
-                    <option value="Bangalore">Bengaluru</option>
-                    <option value="Chennai">Chennai</option>
                 </select>
             </div>
             <div>
@@ -26,14 +25,17 @@
                         <a class="w-inline-block link-blog-list" ui-sref="mealDetail" data-load="1">
                             <table width="100%">
                                 <td width="80%">
-                                    <div class="image-new"><span><i class="fa fa-inr" aria-hidden="true"></i> 155</span>
+                                    <div class="image-new" style='background-image: url({{mealImage}})'>
+                                        <span>
+                                            <i class="fa fa-inr" aria-hidden="true"></i> {{price}}
+                                        </span>
                                     </div>
                                 </td>
                                 <td width="20%">
                                     <table>
                                         <tr>
                                             <td style="padding: 10px">
-                                            <div class="chef-side circular-side"></div>
+                                                <div class="chef-side circular-side" style='background-image: url({{chefImage}})'></div>
                                             </td>
                                         </tr>
 
@@ -50,7 +52,7 @@
                                         </tr>
                                         <tr>
                                             <td style="padding: 10px">
-                                            3 Rem
+                                                {{remCount}} Rem
                                             </td>
                                         </tr>
 
@@ -65,11 +67,11 @@
                                                 <tr>
                                                     <td align="center" style="width: 100%">
                                                         <div class="calendar-col-left">
-                                                            <div class="event-title">Masala Dosa with Chutney</div>
+                                                            <div class="event-title">{{foodName}}</div>
                                                             <div class="w-clearfix text-event-wrap">
 
-                                                                <div class="event-text">Delivery: 1:30 PM</div>
-                                                                <div class="event-text">Order Before: 12:00PM</div>
+                                                                <div class="event-text">Delivery: {{deliveryTime}}</div>
+                                                                <div class="event-text">Order Before: {{orderBeforeTime}}</div>
 
 
                                                             </div>
@@ -98,7 +100,8 @@
                         <a class="w-inline-block link-blog-list" ui-sref="mealDetail" data-load="1">
                             <table width="100%">
                                 <td width="80%">
-                                    <div class="image-new bg1"><span><i class="fa fa-inr" aria-hidden="true"></i> 95</span>
+                                    <div class="image-new bg1"><span><i class="fa fa-inr"
+                                                                        aria-hidden="true"></i> 95</span>
                                     </div>
                                 </td>
                                 <td width="20%">
