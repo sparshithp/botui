@@ -32,7 +32,10 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
         .state('mealDetail', {
             url: '/mealDetail',
             templateUrl: 'views/mealDetail.html',
-            controller: 'mealDetailCtrl'
+            controller: 'mealDetailCtrl',
+            params: {
+                mealId: null
+            }
         })
         .state('cart', {
             url: '/cart',

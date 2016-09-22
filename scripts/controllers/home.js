@@ -20,19 +20,12 @@ app.controller('HomeCtrl', function($scope, $alert, $auth, $rootScope, $http) {
             skipAuthorization: true // `Authorization: Bearer <token>` will not be sent on this request.
         }).then(function(res){
             var meals = res.data.meals;
+            $scope.meals = meals;
             console.log(res.data);
-            $scope.mealImage = meals[0].imageUrl;
-            $scope.price = meals[0].price;
-            $scope.chefImage = meals[0].chefImageUrl;
-            $scope.remCount = meals[0].remainingCount;
-            $scope.foodName = meals[0].foodName;
-            $scope.deliveryTime = getDateTimeForDisplay(meals[0].availableTime);
-            $scope.orderBeforeTime = getDateTimeForDisplay(meals[0].orderBeforeTime);
-            console.log($scope.deliveryTime);
         });
     };
 
-    function getDateTimeForDisplay(dateTimeString){
+    $scope.getTime = function (dateTimeString){
         var date = new Date(dateTimeString);
 
         // convert to msec
@@ -43,14 +36,16 @@ app.controller('HomeCtrl', function($scope, $alert, $auth, $rootScope, $http) {
         // create new Date object for different city
         // using supplied offset
         var localDate = new Date(local);
-        var hrs = localDate.getHours();
-        var min = localDate.getMinutes();
+        var hrs = padZeros(localDate.getHours(), 2);
+        var min = padZeros(localDate.getMinutes(), 2);
         var amPm = "AM"
         if(hrs/12==1){
             amPm = "PM";
         }
         return hrs+":"+min+" "+amPm;
-    }
+    };
+
+    function padZeros(num, size){ return ('000000000' + num).substr(-size); }
 
     /*
     $http({

@@ -21,13 +21,13 @@
             </div>
             <div>
                 <ul class="w-clearfix list-news">
-                    <li class="list-item-new">
-                        <a class="w-inline-block link-blog-list" ui-sref="mealDetail" data-load="1">
+                    <li ng-repeat="meal in meals" class="list-item-new">
+                        <a class="w-inline-block link-blog-list" ui-sref="mealDetail({mealId : meal._id})" data-load="1">
                             <table width="100%">
                                 <td width="80%">
-                                    <div class="image-new" style='background-image: url({{mealImage}})'>
+                                    <div class="image-new" style='background-image: url({{meal.imageUrl}})'>
                                         <span>
-                                            <i class="fa fa-inr" aria-hidden="true"></i> {{price}}
+                                            <i class="fa fa-inr" aria-hidden="true"></i> {{meal.price}}
                                         </span>
                                     </div>
                                 </td>
@@ -35,7 +35,7 @@
                                     <table>
                                         <tr>
                                             <td style="padding: 10px">
-                                                <div class="chef-side circular-side" style='background-image: url({{chefImage}})'></div>
+                                                <div class="chef-side circular-side" style='background-image: url({{meal.chefImageUrl}})'></div>
                                             </td>
                                         </tr>
 
@@ -52,7 +52,7 @@
                                         </tr>
                                         <tr>
                                             <td style="padding: 10px">
-                                                {{remCount}} Rem
+                                                {{meal.remainingCount}} Rem
                                             </td>
                                         </tr>
 
@@ -67,11 +67,11 @@
                                                 <tr>
                                                     <td align="center" style="width: 100%">
                                                         <div class="calendar-col-left">
-                                                            <div class="event-title">{{foodName}}</div>
+                                                            <div class="event-title">{{meal.foodName}}</div>
                                                             <div class="w-clearfix text-event-wrap">
 
-                                                                <div class="event-text">Delivery: {{deliveryTime}}</div>
-                                                                <div class="event-text">Order Before: {{orderBeforeTime}}</div>
+                                                                <div class="event-text">Delivery: {{getTime(meal.availableTime)}}</div>
+                                                                <div class="event-text">Order Before: {{getTime(meal.orderBeforeTime)}}</div>
 
 
                                                             </div>
