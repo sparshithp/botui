@@ -1,4 +1,4 @@
-app.controller('LoginCtrl', function ($scope, $alert, $auth, $rootScope) {
+app.controller('LoginCtrl', function ($scope, $alert, $auth, $state, $rootScope) {
     $rootScope.title = "Login";
     $scope.message="";
     console.log($scope.title);
@@ -21,7 +21,12 @@ app.controller('LoginCtrl', function ($scope, $alert, $auth, $rootScope) {
             .then(function (res) {
                 if (res.data && res.data.message) {
                     $scope.message = res.data.message;
+                    $auth.setToken(res.data.token);
                 }
+                $auth.setToken(res.data.token);
+                console.log($auth.getToken());
+                $state.go("home");
+
             })
             .catch(function (res) {
                 if (res.data && res.data.message) {

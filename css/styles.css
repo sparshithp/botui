@@ -218,9 +218,26 @@ a {
   background-size: cover;
 }
 .list {
+  overflow: scroll;
+  height:     90%;
   padding-left: 0px;
   background-color: white;
   list-style-type: none;
+}
+.chatbox {
+  overflow:   none;
+  position:   relative;
+  width:      100%;
+  height:     90%;
+  border:     1px solid #ccc;
+}
+.chatmessages
+{
+  overflow:   auto;
+  position:   absolute;
+  bottom:     0;
+  width:      100%;
+  max-height: 200px;
 }
 .list.list-messages {
   border-top: 1px solid #e7e7e9;

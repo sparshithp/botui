@@ -17,6 +17,7 @@
 
 
   <!-- crazy new CDN releases -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="scripts/angular/angular.js"></script>
   <script src="scripts/angular/angular-messages.js"></script>
   <script src="scripts/angular/angular-resource.js"></script>
@@ -24,6 +25,7 @@
 
   <!-- PubNub -->
   <script src="scripts/angular/pubnub.min.js"></script>
+  <script src="https://cdn.rawgit.com/Luegg/angularjs-scroll-glue/master/src/scrollglue.js"></script>
 
   <!-- bower_components -->
   <script src='bower_components/angular-ui-router/release/angular-ui-router.min.js'></script>
@@ -44,6 +46,7 @@
   <script src="scripts/controllers/profile.js"></script>
   <script src="scripts/controllers/chef.js"></script>
   <script src="scripts/controllers/mealDetail.js"></script>
+  <script src="scripts/controllers/chat.js"></script>
   <script src="scripts/services/account.js"></script>
   <script src="scripts/services/account.js"></script>
 </head>
@@ -93,12 +96,6 @@
               <div class="icon ion-ios-box-outline"></div>
             </div>
             <div class="nav-menu-titles">Meal Detail</div>
-          </a>
-          <a class="w-clearfix w-inline-block nav-menu-link" ui-sref="cart">
-            <div class="icon-list-menu">
-              <div class="icon ion-ios-calendar-outline"></div>
-            </div>
-            <div class="nav-menu-titles">Cart</div>
           </a>
           <a class="w-clearfix w-inline-block nav-menu-link" ui-sref="chef">
             <div class="icon-list-menu">
