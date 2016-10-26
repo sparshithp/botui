@@ -224,6 +224,9 @@ a {
   background-color: white;
   list-style-type: none;
 }
+.chat-body {
+  height: 90%
+}
 .chatbox {
   overflow:   none;
   position:   relative;

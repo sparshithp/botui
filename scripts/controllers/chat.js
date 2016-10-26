@@ -2,7 +2,6 @@
  * Created by sparshithp on 10/24/16.
  */
 app.controller('chatCtrl', function($scope, $auth, $alert, $http, $rootScope, $location, $anchorScroll) {
-    console.log($auth.getToken());
     $location.hash('scrollArea');
 
     // call $anchorScroll()
@@ -10,6 +9,10 @@ app.controller('chatCtrl', function($scope, $auth, $alert, $http, $rootScope, $l
     $rootScope.title = "Chat";
     $scope.chats = [];
     $scope.sendMessage = function(){
+        if(!$scope.msg || $scope.msg.trim()==""){
+            $scope.msg = "";
+            return;
+        }
         $scope.chats.push({
             response: false,
             text: $scope.msg
@@ -18,7 +21,7 @@ app.controller('chatCtrl', function($scope, $auth, $alert, $http, $rootScope, $l
 
         // call $anchorScroll()
         $anchorScroll();
-        $http.post('http://localhost:8080/parse', {userId: 'sffsf', text: $scope.msg})
+        $http.post('http://sparshith.online:8080/parse', {userId: 'sffsf', text: $scope.msg})
             .then(
                 function(response){
                     $scope.msg = "";

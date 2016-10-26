@@ -64,7 +64,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $authProvider) {
 
     function authenticate($q, $auth, $state, $timeout) {
         if ($auth.isAuthenticated()) {
-            console.log('yes');
             // Resolve the promise successfully
             return $q.when()
         } else {
@@ -83,8 +82,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $authProvider) {
 
     $urlRouterProvider.otherwise('/');
 
-    $authProvider.loginUrl = "http://localhost:8080/auth/login";
-    $authProvider.signupUrl = "http://localhost:8080/auth/signup";
+    $authProvider.loginUrl = "http://sparshith.online:8080/auth/login";
+    $authProvider.signupUrl = "http://sparshith.online:8080/auth/signup";
 
 
 });

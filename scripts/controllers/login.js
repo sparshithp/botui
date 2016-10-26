@@ -1,7 +1,6 @@
 app.controller('LoginCtrl', function ($scope, $alert, $auth, $state, $rootScope) {
     $rootScope.title = "Login";
     $scope.message="";
-    console.log($scope.title);
 
 
     $scope.login = function () {
@@ -24,7 +23,6 @@ app.controller('LoginCtrl', function ($scope, $alert, $auth, $state, $rootScope)
                     $auth.setToken(res.data.token);
                 }
                 $auth.setToken(res.data.token);
-                console.log($auth.getToken());
                 $state.go("home");
 
             })

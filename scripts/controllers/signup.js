@@ -1,4 +1,4 @@
-app.controller('SignupCtrl', function ($scope, $auth, $rootScope) {
+app.controller('SignupCtrl', function ($scope, $auth, $rootScope, $state) {
     $scope.message = "";
     $rootScope.title = "Signup";
     $scope.signup = function () {
@@ -38,12 +38,16 @@ app.controller('SignupCtrl', function ($scope, $auth, $rootScope) {
         }).then(function(res) {
                 if(res.data && res.data.message){
                     $scope.message = res.data.message;
+                    $auth.setToken(res.data.token);
                 }
+                $auth.setToken(res.data.token);
+                $state.go("home");
             })
             .catch(function(res) {
                 if(res.data && res.data.message){
                     $scope.message = res.data.message;
                 }else{
+                    console.log(res);
                     $scope.message = "Network error. Please try again";
                 }
             });
